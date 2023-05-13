@@ -12,7 +12,7 @@ let map = new mapboxgl.Map({
 map.on('load', () => {
     map.addSource('2010', {
         type: 'geojson',
-        data: 'assets/2010_test.geojson'
+        data: 'assets/2010joinedfinal.geojson'
     });
 
     map.addLayer({
@@ -22,7 +22,7 @@ map.on('load', () => {
         'paint': {
             'fill-color': [
                 'step',
-                ['coalesce', ['to-number', ['get', 'P0010003']], 0],
+                ['coalesce', ['to-number', ['get', 'cleaned2010race2_one_white_alone']], 0],
                 '#FFEDA0',   // stop_output_0
                 5,          // stop_input_0
                 '#FED976',   // stop_output_1
