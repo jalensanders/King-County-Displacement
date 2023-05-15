@@ -1,12 +1,11 @@
 # King County Displacement
+
+README file for King County Displacement respoitory. Contains narrative regarding assignment and other pertinent information and objects.
+
 Team: Puget Sound Sage I: City Displacement Trends
 Members: Kyle Leung, Jalen Antoine Sanders, Lily Shen, Win Win
 Sponsor: Howard Greenwich, Research Director, Puget Sound Sage
 Class: GEOG 469
-
-
-## King County Displacement
-README file for King County Displacement respoitory. Contains narrative regarding assignment and other pertinent information and objects.
 
 
 # Intent of Study 
@@ -18,7 +17,7 @@ This project aims to study housing displacement occuring at  King County, WA thr
 
 # Map of Race Data
 
-![Race, King County](Link insert here)
+[Race, King County](Insert link here)
 
 
 # Shapefile Links 
