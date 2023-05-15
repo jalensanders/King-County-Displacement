@@ -4,8 +4,8 @@ mapboxgl.accessToken =
 let map = new mapboxgl.Map({
     container: 'map', // container ID
     style: 'mapbox://styles/mapbox/dark-v11', // style URL
-    center: [-120.79438630057388, 47.53695842091479], // starting position [lng, lat]
-    zoom: 5.9, // starting zoom
+    center: [-122.3314, 47.5989], // starting position [lng, lat]
+    zoom: 8, // starting zoom
     projection: 'mercator'
 });
 
@@ -44,13 +44,36 @@ map.on('load', () => {
         }
     });
 
-    // map.addLayer({
-    //     id: 'my-polygons-layer',
-    //     type: 'fill',
-    //     source: '2010',
-    //     paint: {
-    //         'fill-color': 'rgba(0, 0, 255, 0.5)',
-    //         'fill-outline-color': 'rgba(0, 0, 0, 1)'
-    //     }
-    // });
+    const layers = [
+        '0-4',
+        '5-9',
+        '10-19',
+        '20-39',
+        '40-59',
+        '60+'
+    ];
+    const colors = [
+        '#FED976',
+        '#FEB24C',
+        '#FD8D3C',
+        '#FC4E2A',
+        '#E31A1C',
+        '#800026'
+    ];
+    
+    const legend = document.getElementById('legend');
+    legend.innerHTML = "<b>Population of<br> demographic</b><br><b>()</b>";
+    layers.forEach((layer, i) => {
+        const color = colors[i];
+        const item = document.createElement('div');
+        const key = document.createElement('span');
+        key.className = 'legend-key';
+        key.style.backgroundColor = color;
+    
+        const value = document.createElement('span');
+        value.innerHTML = `${layer}`;
+        item.appendChild(key);
+        item.appendChild(value);
+        legend.appendChild(item);
+    });
 })
