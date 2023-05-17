@@ -4,7 +4,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGltZW50aW8iLCJhIjoiY2xhMngzZmEyMDRtdDN2bW93M
         // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
         style: 'mapbox://styles/mapbox/light-v11',
         center: [-122.3314, 47.5989],
-        zoom: 8
+        zoom: 9
     });
 
     beforeMap.on('load', () => {
@@ -20,17 +20,17 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGltZW50aW8iLCJhIjoiY2xhMngzZmEyMDRtdDN2bW93M
         'paint': {
             'fill-color': [
                 'step',
-                ['coalesce', ['to-number', ['get', 'cleaned2010race2_one_white_alone']], 0],
+                ['coalesce', ['to-number', ['get', 'cleaned2010race2_Total:']], 0],
                 '#FFEDA0',   // stop_output_0
-                5,          // stop_input_0
+                20,          // stop_input_0
                 '#FED976',   // stop_output_1
-                10,          // stop_input_1
+                40,          // stop_input_1
                 '#FEB24C',   // stop_output_2
-                20,          // stop_input_2
+                80,          // stop_input_2
                 '#FD8D3C',   // stop_output_3
-                40,         // stop_input_3
+                160,         // stop_input_3
                 '#FC4E2A',   // stop_output_4
-                60,         // stop_input_4
+                320,         // stop_input_4
                 // '#E31A1C',   // stop_output_5
                 // 2000,         // stop_input_5
                 // '#BD0026',   // stop_output_6
@@ -43,12 +43,12 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGltZW50aW8iLCJhIjoiY2xhMngzZmEyMDRtdDN2bW93M
     });
 
     const layers = [
-        '0-4',
-        '5-9',
-        '10-19',
-        '20-39',
-        '40-59',
-        '60+'
+        '0-20',
+        '21-40',
+        '41-80',
+        '81-160',
+        '161-320',
+        '320+'
     ];
     const colors = [
         '#FED976',
@@ -81,7 +81,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGltZW50aW8iLCJhIjoiY2xhMngzZmEyMDRtdDN2bW93M
         container: 'after',
         style: 'mapbox://styles/mapbox/dark-v11',
         center: [-122.3314, 47.5989],
-        zoom: 8
+        zoom: 9
     });
 
     afterMap.on('load', () => {
@@ -99,15 +99,15 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGltZW50aW8iLCJhIjoiY2xhMngzZmEyMDRtdDN2bW93M
                 'step',
                 ['coalesce', ['to-number', ['get', 'joinednewfinal_total']], 0],
                 '#FFEDA0',   // stop_output_0
-                5,          // stop_input_0
+                20,          // stop_input_0
                 '#FED976',   // stop_output_1
-                10,          // stop_input_1
+                40,          // stop_input_1
                 '#FEB24C',   // stop_output_2
-                20,          // stop_input_2
+                80,          // stop_input_2
                 '#FD8D3C',   // stop_output_3
-                40,         // stop_input_3
+                160,         // stop_input_3
                 '#FC4E2A',   // stop_output_4
-                60,         // stop_input_4
+                320,         // stop_input_4
                 // '#E31A1C',   // stop_output_5
                 // 2000,         // stop_input_5
                 // '#BD0026',   // stop_output_6
@@ -120,12 +120,12 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGltZW50aW8iLCJhIjoiY2xhMngzZmEyMDRtdDN2bW93M
     });
 
     const layers = [
-        '0-4',
-        '5-9',
-        '10-19',
-        '20-39',
-        '40-59',
-        '60+'
+        '0-20',
+        '21-40',
+        '41-80',
+        '81-160',
+        '161-320',
+        '320+'
     ];
     const colors = [
         '#FED976',
