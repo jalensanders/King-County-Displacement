@@ -1,22 +1,20 @@
-mapboxgl.accessToken =
-    'pk.eyJ1IjoiZGltZW50aW8iLCJhIjoiY2xhMngzZmEyMDRtdDN2bW93MjYyY2hvbSJ9.lBP2u-C8BEgug7_ye16y2g';
+mapboxgl.accessToken = 'pk.eyJ1IjoiZGltZW50aW8iLCJhIjoiY2xhMngzZmEyMDRtdDN2bW93MjYyY2hvbSJ9.lBP2u-C8BEgug7_ye16y2g';
+    const beforeMap = new mapboxgl.Map({
+        container: 'before',
+        // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
+        style: 'mapbox://styles/mapbox/light-v11',
+        center: [-122.3314, 47.5989],
+        zoom: 8
+    });
 
-let map = new mapboxgl.Map({
-    container: 'map', // container ID
-    style: 'mapbox://styles/mapbox/dark-v11', // style URL
-    center: [-122.3314, 47.5989], // starting position [lng, lat]
-    zoom: 8, // starting zoom
-    projection: 'mercator'
-});
-
-map.on('load', () => {
-    map.addSource('2010', {
+    beforeMap.on('load', () => {
+        beforeMap.addSource('2010', {
         type: 'geojson',
         data: 'assets/2010joinedfinal.geojson'
     });
 
-    map.addLayer({
-        'id': 'map',
+    beforeMap.addLayer({
+        'id': 'before',
         'type': 'fill',
         'source': '2010',
         'paint': {
@@ -77,3 +75,19 @@ map.on('load', () => {
         legend.appendChild(item);
     });
 })
+
+
+    const afterMap = new mapboxgl.Map({
+        container: 'after',
+        style: 'mapbox://styles/mapbox/dark-v11',
+        center: [-122.3314, 47.5989],
+        zoom: 8
+    });
+
+    // A selector or reference to HTML element
+    const container = '#comparison-container';
+
+    const map = new mapboxgl.Compare(beforeMap, afterMap, container, {
+        // Set this to enable comparing two maps by mouse movement:
+        // mousemove: true
+    });

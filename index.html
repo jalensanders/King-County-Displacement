@@ -4,34 +4,10 @@
 <meta charset="utf-8">
 <title>Swipe between maps</title>
 <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
-<link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet">
+<link rel="stylesheet" href="styles.css"></link>
 <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
-<style>
-body { margin: 0; padding: 0; }
-#map { position: absolute; top: 0; bottom: 0; width: 100%; }
-</style>
 </head>
 <body>
-<style>
-    body {
-        overflow: hidden;
-    }
-
-    body * {
-        -webkit-touch-callout: none;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-    }
-
-    .map {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        width: 100%;
-    }
-</style>
 <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.4.0/mapbox-gl-compare.js"></script>
 <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.4.0/mapbox-gl-compare.css" type="text/css">
 <div id="comparison-container">
@@ -39,101 +15,6 @@ body { margin: 0; padding: 0; }
     <div id="after" class="map"></div>
 
 </div>
-<script>
-	mapboxgl.accessToken = 'pk.eyJ1IjoiZGltZW50aW8iLCJhIjoiY2xhMngzZmEyMDRtdDN2bW93MjYyY2hvbSJ9.lBP2u-C8BEgug7_ye16y2g';
-    const beforeMap = new mapboxgl.Map({
-        container: 'before',
-        // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
-        style: 'mapbox://styles/mapbox/light-v11',
-        center: [-122.3314, 47.5989],
-        zoom: 8
-    });
-
-    beforeMap.on('load', () => {
-        beforeMap.addSource('2010', {
-        type: 'geojson',
-        data: 'assets/2010joinedfinal.geojson'
-    });
-
-    beforeMap.addLayer({
-        'id': 'before',
-        'type': 'fill',
-        'source': '2010',
-        'paint': {
-            'fill-color': [
-                'step',
-                ['coalesce', ['to-number', ['get', 'cleaned2010race2_one_white_alone']], 0],
-                '#FFEDA0',   // stop_output_0
-                5,          // stop_input_0
-                '#FED976',   // stop_output_1
-                10,          // stop_input_1
-                '#FEB24C',   // stop_output_2
-                20,          // stop_input_2
-                '#FD8D3C',   // stop_output_3
-                40,         // stop_input_3
-                '#FC4E2A',   // stop_output_4
-                60,         // stop_input_4
-                // '#E31A1C',   // stop_output_5
-                // 2000,         // stop_input_5
-                // '#BD0026',   // stop_output_6
-                // 5000,        // stop_input_6
-                "#800026"
-            ],
-            'fill-outline-color': '#BBBBBB',
-            'fill-opacity': 0.7,
-        }
-    });
-
-    const layers = [
-        '0-4',
-        '5-9',
-        '10-19',
-        '20-39',
-        '40-59',
-        '60+'
-    ];
-    const colors = [
-        '#FED976',
-        '#FEB24C',
-        '#FD8D3C',
-        '#FC4E2A',
-        '#E31A1C',
-        '#800026'
-    ];
-    
-    const legend = document.getElementById('legend');
-    legend.innerHTML = "<b>Population of<br> demographic</b><br><b>()</b>";
-    layers.forEach((layer, i) => {
-        const color = colors[i];
-        const item = document.createElement('div');
-        const key = document.createElement('span');
-        key.className = 'legend-key';
-        key.style.backgroundColor = color;
-    
-        const value = document.createElement('span');
-        value.innerHTML = `${layer}`;
-        item.appendChild(key);
-        item.appendChild(value);
-        legend.appendChild(item);
-    });
-})
-
-
-    const afterMap = new mapboxgl.Map({
-        container: 'after',
-        style: 'mapbox://styles/mapbox/dark-v11',
-        center: [-122.3314, 47.5989],
-        zoom: 8
-    });
-
-    // A selector or reference to HTML element
-    const container = '#comparison-container';
-
-    const map = new mapboxgl.Compare(beforeMap, afterMap, container, {
-        // Set this to enable comparing two maps by mouse movement:
-        // mousemove: true
-    });
-</script>
 <script src="index.js"></script>
 </body>
 </html>
