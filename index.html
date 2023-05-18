@@ -14,6 +14,29 @@
     <div id="before" class="map"></div>
     <div id="after" class="map"></div>
 </div>
+<div class="dropdown">
+    <button class="dropbtn" id="filter-btn">Race</button>
+    <div class="dropdown-content">
+      <p id="white" onclick="handleSwitch('cleaned2010race2_one_white_alone')">
+        White
+      </p>
+      <p id="black" onclick="handleSwitch('cleaned2010race2_one_black_aa_alone')">
+        Black
+      </p>
+      <p id="asian" onclick="handleSwitch('cleaned2010race2_one_asian_alone')">
+        Asian
+      </p>
+      <p id="hisp" onclick="handleSwitch('')">
+        Hispanic
+      </p>
+      <p id="native" onclick="handleSwitch('cleaned2010race2_one_ai_an_alone')">
+        Native
+      </p>
+      <p id="hi/pi" onclick="handleSwitch('cleaned2010race2_one_nh_pi_alone')">
+        Hawaiian/PacIsl
+      </p>
+    </div>
+  </div>
 <script src="index.js"></script>
 </body>
 </html>
