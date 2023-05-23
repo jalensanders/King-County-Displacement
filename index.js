@@ -4,8 +4,7 @@ function handleSwitch(filterVar) {
     const splitVar = filterVar.split('-');
     let variable2010 = splitVar[0];
     let variable2020 = splitVar[1];
-    console.log(splitVar)
-    // setFilter(variable);
+    setToggle(variable2020);
 
 
     beforeMap.setPaintProperty("before", 'fill-color', [
@@ -49,12 +48,17 @@ function handleSwitch(filterVar) {
     ]);
 };
 
+function setToggle(variable) {
+    const toggle =  document.getElementById('currentToggle');
+    toggle.innerText = 'Toggle: ' + variable;
+}
+
 mapboxgl.accessToken = 'pk.eyJ1IjoiZGltZW50aW8iLCJhIjoiY2xhMngzZmEyMDRtdDN2bW93MjYyY2hvbSJ9.lBP2u-C8BEgug7_ye16y2g';
     const beforeMap = new mapboxgl.Map({
         container: 'before',
         // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
         style: 'mapbox://styles/mapbox/light-v11',
-        center: [-122.3314, 47.5989],
+        center: [-121.78956760516976, 47.47222353691079],
         zoom: 9
     });
 
@@ -131,7 +135,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGltZW50aW8iLCJhIjoiY2xhMngzZmEyMDRtdDN2bW93M
     const afterMap = new mapboxgl.Map({
         container: 'after',
         style: 'mapbox://styles/mapbox/dark-v11',
-        center: [-122.3314, 47.5989],
+        center: [-121.78956760516976, 47.47222353691079],
         zoom: 9
     });
 
@@ -210,3 +214,96 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGltZW50aW8iLCJhIjoiY2xhMngzZmEyMDRtdDN2bW93M
         // Set this to enable comparing two maps by mouse movement:
         // mousemove: true
     });
+
+
+//testing the percentage change
+// async function a() {
+//     const a2020 = await fetch('assets/2020displacementdata.geojson');
+//     const b = await a2020.json();
+//     console.log(b)
+//     // BLOCK_LBL2: "Block 1011"
+//     // DECENNIALPL2020.P2-Data_NAME: "Block 1011, Block Group 1, Census Tract 108, King County, Washington"
+//     const a2010 = await fetch('assets/2010displacementdata.geojson');
+//     const c = await a2010.json();
+//     console.log(c)
+//     // Block 1000, Block Group 1, Census Tract 1, King County, Washington
+//     let changeWhite = [];
+//     let changeWhiteBlock = [];
+//     for (let i = 0; i<b.features.length; i++) {
+//         let x = b.features[i].properties.joinednewfinal_white_alone;
+//         for (let j = 0; j < c.features.length; j++) {
+//             // if (c.features[j].properties['cleaned2010race2_Label (Grouping)'] === b.features[i].properties.DECENNIALPL2020.P2-Data_NAME) {
+//             //     
+//             // }
+//             console.log(c.features[j].properties['cleaned2010race2_Label (Grouping)'])
+//         }
+//         let y = c.features[5000].properties.cleaned2010race2_one_white_alone;
+//         if (y > 0){
+//             changeWhite.push(((x - y) / y) * 100);
+//             changeWhiteBlock.push(b.features[i].geometry);
+//         }
+//     }
+    
+//     const features = changeWhiteBlock.map((geometry, index) => {
+//         return {
+//           type: "Feature",
+//           geometry: geometry,
+//           properties: {changeWhite: changeWhite[index]} // Add properties as needed
+//         };
+//       });
+
+//     const newGeo = {
+//     type: "FeatureCollection",
+//     features: features
+//     };
+
+//     return newGeo
+// }
+
+// const afterMap = new mapboxgl.Map({
+//     container: 'after',
+//     style: 'mapbox://styles/mapbox/dark-v11',
+//     center: [-122.3314, 47.5989],
+//     zoom: 9
+// });
+
+
+// afterMap.on('load', async () => {
+// afterMap.addSource('percentage', {
+// type: 'geojson',
+// data: await a()
+// });
+
+// afterMap.addLayer({
+//     'id': 'after',
+//     'type': 'fill',
+//     'source': 'percentage',
+//     'paint': {
+//         'fill-color': [
+//             'step',
+//             ['coalesce', ['to-number', ['get', 'changeWhite']], 0],
+//             '#FFEDA0',   // stop_output_0
+//             -100,          // stop_input_0
+//             '#FED976',   // stop_output_1
+//             -65,          // stop_input_1
+//             '#FEB24C',   // stop_output_2
+//             -30,          // stop_input_2
+//             '#FD8D3C',   // stop_output_3
+//             0,
+//             'blue',
+//             5,         // stop_input_3
+//             '#FC4E2A',   // stop_output_4
+//             40,         // stop_input_4
+//             '#E31A1C',   // stop_output_5
+//             75,         // stop_input_5
+//             '#BD0026',   // stop_output_6
+//             100,        // stop_input_6
+//             "#800026",
+//             200,
+//             'black'
+//         ],
+//         'fill-outline-color': '#BBBBBB',
+//         'fill-opacity': 0.7,
+// }
+// });
+// })
