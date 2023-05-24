@@ -65,7 +65,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGltZW50aW8iLCJhIjoiY2xhMngzZmEyMDRtdDN2bW93M
     beforeMap.on('load', () => {
         beforeMap.addSource('2010', {
         type: 'geojson',
-        data: '../assets/2010displacementdata.geojson'
+        data: 'assets/2010displacementdata.geojson'
     });
 
     beforeMap.addLayer({
@@ -142,7 +142,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGltZW50aW8iLCJhIjoiY2xhMngzZmEyMDRtdDN2bW93M
     afterMap.on('load', () => {
         afterMap.addSource('2020', {
         type: 'geojson',
-        data: '../assets/2020displacementdata.geojson'
+        data: 'assets/2020displacementdata.geojson'
     });
 
     afterMap.addLayer({
