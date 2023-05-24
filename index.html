@@ -1,48 +1,146 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en" class="no-js">
 <head>
-<meta charset="utf-8">
-<title>Swipe between maps</title>
-<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
-<link rel="stylesheet" href="styles.css"></link>
-<script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="canonical" href="https://html5-templates.com/" />
+    <title>King County Displacement Trends (2000-2020)</title>
+    <meta name="description" content="King County Displacement Trends (2000-2020)">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/sticky-menu.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.4.0/mapbox-gl-compare.js"></script>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.4.0/mapbox-gl-compare.css" type="text/css">
+    <link rel="stylesheet" href="css/styles.css"></link>
 </head>
-<body>
-<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.4.0/mapbox-gl-compare.js"></script>
-<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.4.0/mapbox-gl-compare.css" type="text/css">
-<div id="comparison-container">
-    <div id="before" class="map"></div>
-    <div id="after" class="map"></div>
-</div>
-<nav>
-  <div class="dropdown">
-    <button class="dropbtn" id="filter-btn">Race</button>
-    <div class="dropdown-content">
-      <p id="white" onclick="handleSwitch('cleaned2010race2_one_white_alone-joinednewfinal_white_alone')">
-        White
-      </p>
-      <p id="black" onclick="handleSwitch('cleaned2010race2_one_black_aa_alone-joinednewfinal_black_or_aa_alone')">
-        Black
-      </p>
-      <p id="asian" onclick="handleSwitch('cleaned2010race2_one_asian_alone-joinednewfinal_asian_alone')">
-        Asian
-      </p>
-      <p id="hisp" onclick="handleSwitch('hispanic_Total races tallied_Hispanic or Latino-hispanic_P2_002N')">
-        Hispanic
-      </p>
-      <p id="native" onclick="handleSwitch('cleaned2010race2_one_ai_an_alone-joinednewfinal_amerind_or_alaskanative_alone')">
-        Native
-      </p>
-      <p id="hi/pi" onclick="handleSwitch('cleaned2010race2_one_nh_pi_alone-joinednewfinal_native_hawaiian_pacific_islander_alone')">
-        Hawaiian/PacIsl
-      </p>
-    </div>
-  </div>
-  
-  <p class="navItem" id="currentToggle">Toggle: Total Population</p>
-  
-</nav>
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle menu</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Welcome!</a>
+            </div>
 
-<script src="index.js"></script>
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="hidden">
+                        <a class="page-scroll" href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#map">The Map</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#whatwedo">What We Do</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>	<!-- .navbar-collapse -->
+        </div>		<!-- .container -->
+    </nav>
+    <!-- Welcome   -->
+    <section id="welcome" class="welcome-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>King County Displacement Trends (2000-2020)</h1>
+                    <p>An examination of displacement trends and risk in the greater King County area.</p>
+					<p>Project developed in conjunction with the University of Washington and Puget Sound Sage.</p>
+					<p>&nbsp;</p>
+                    <a class="btn btn-primary page-scroll" href="#map">Click To Scroll Down!</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map -->
+    <section id="map" class="map-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>The Map</h1>
+                    
+                    <div id="comparison-container">
+                        <div id="before" class="map"></div>
+                        <div id="after" class="map"></div>
+                    </div>
+                    <nav>
+                      <div class="dropdown">
+                        <button class="dropbtn" id="filter-btn">Race</button>
+                        <div class="dropdown-content">
+                          <p id="white" onclick="handleSwitch('cleaned2010race2_one_white_alone-joinednewfinal_white_alone')">
+                            White
+                          </p>
+                          <p id="black" onclick="handleSwitch('cleaned2010race2_one_black_aa_alone-joinednewfinal_black_or_aa_alone')">
+                            Black
+                          </p>
+                          <p id="asian" onclick="handleSwitch('cleaned2010race2_one_asian_alone-joinednewfinal_asian_alone')">
+                            Asian
+                          </p>
+                          <p id="hisp" onclick="handleSwitch('hispanic_Total races tallied_Hispanic or Latino-hispanic_P2_002N')">
+                            Hispanic
+                          </p>
+                          <p id="native" onclick="handleSwitch('cleaned2010race2_one_ai_an_alone-joinednewfinal_amerind_or_alaskanative_alone')">
+                            Native
+                          </p>
+                          <p id="hi/pi" onclick="handleSwitch('cleaned2010race2_one_nh_pi_alone-joinednewfinal_native_hawaiian_pacific_islander_alone')">
+                            Hawaiian/PacIsl
+                          </p>
+                        </div>
+                      </div>
+                      
+                      <p class="navItem" id="currentToggle">Toggle: Total Population</p>
+                      
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What we do Section -->
+    <section id="whatwedo" class="whatwedo-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>About Us + What We Examined</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>References and Thanks</h1>
+                    <p>Webmap developed with the use of: Mapbox GL Js, QGIS and HTML5 Templates</p>
+                </div>
+            </div>
+        </div>
+    </section>
+	
+	<a id="back2Top" title="Back to top" href="#">&#10148;</a>
+	
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Scrolling Nav JavaScript -->
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/sticky-menu.js"></script>
+
+    <script src="js/index.js"></script>
+
 </body>
+
 </html>
