@@ -6,8 +6,7 @@ function handleSwitch(filterVar) {
     let variable2020 = splitVar[1];
     setToggle(variable2020);
 
-
-    beforeMap.setPaintProperty("before", 'fill-color', [
+    beforeMap.setPaintProperty("before1", 'fill-color', [
         'step',
         ['to-number', ['get', variable2010]],
         '#FFEDA0',   // stop_output_0
@@ -27,7 +26,7 @@ function handleSwitch(filterVar) {
         "#800026"
     ]);
 
-    afterMap.setPaintProperty("after", 'fill-color', [
+    afterMap.setPaintProperty("after1", 'fill-color', [
         'step',
         ['to-number', ['get', variable2020]],
         '#FFEDA0',   // stop_output_0
@@ -63,39 +62,334 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGltZW50aW8iLCJhIjoiY2xhMngzZmEyMDRtdDN2bW93M
     });
 
     beforeMap.on('load', () => {
-        beforeMap.addSource('2010', {
+        beforeMap.addSource('2010_1', {
         type: 'geojson',
-        data: 'assets/2010displacementdata.geojson'
-    });
-
-    beforeMap.addLayer({
-        'id': 'before',
-        'type': 'fill',
-        'source': '2010',
-        'paint': {
-            'fill-color': [
-                'step',
-                ['coalesce', ['to-number', ['get', 'cleaned2010race2_Total:']], 0],
-                '#FFEDA0',   // stop_output_0
-                20,          // stop_input_0
-                '#FED976',   // stop_output_1
-                40,          // stop_input_1
-                '#FEB24C',   // stop_output_2
-                80,          // stop_input_2
-                '#FD8D3C',   // stop_output_3
-                160,         // stop_input_3
-                '#FC4E2A',   // stop_output_4
-                320,         // stop_input_4
-                // '#E31A1C',   // stop_output_5
-                // 2000,         // stop_input_5
-                // '#BD0026',   // stop_output_6
-                // 5000,        // stop_input_6
-                "#800026"
-            ],
-            'fill-outline-color': '#BBBBBB',
-            'fill-opacity': 0.7,
+        data: 'assets/New folder/output2010_1.geojson'
+        },
+        beforeMap.addSource('2010_2', {
+            type: 'geojson',
+            data: 'assets/New folder/output2010_2.geojson'
+        },
+        beforeMap.addSource('2010_3', {
+            type: 'geojson',
+            data: 'assets/New folder/output2010_3.geojson'
+        },
+        beforeMap.addSource('2010_4', {
+            type: 'geojson',
+            data: 'assets/New folder/output2010_4.geojson'
+        },
+        beforeMap.addSource('2010_5', {
+            type: 'geojson',
+            data: 'assets/New folder/output2010_5.geojson'
+        },
+        beforeMap.addSource('2010_6', {
+            type: 'geojson',
+            data: 'assets/New folder/output2010_6.geojson'
+        },
+        beforeMap.addSource('2010_7', {
+            type: 'geojson',
+            data: 'assets/New folder/output2010_7.geojson'
+        },
+        beforeMap.addSource('2010_8', {
+            type: 'geojson',
+            data: 'assets/New folder/output2010_8.geojson'
+        },
+        beforeMap.addSource('2010_9', {
+            type: 'geojson',
+            data: 'assets/New folder/output2010_9.geojson'
+        },
+        beforeMap.addSource('2010_10', {
+            type: 'geojson',
+            data: 'assets/New folder/output2010_10.geojson'
         }
-    });
+        ))))))))));
+
+    const layers2010 = [
+        {
+            'id': 'before1',
+            'type': 'fill',
+            'source': '2010_1',
+            'paint': {
+                'fill-color': [
+                    'step',
+                    ['coalesce', ['to-number', ['get', 'cleaned2010race2_Total:']], 0],
+                    '#FFEDA0',   // stop_output_0
+                    20,          // stop_input_0
+                    '#FED976',   // stop_output_1
+                    40,          // stop_input_1
+                    '#FEB24C',   // stop_output_2
+                    80,          // stop_input_2
+                    '#FD8D3C',   // stop_output_3
+                    160,         // stop_input_3
+                    '#FC4E2A',   // stop_output_4
+                    320,         // stop_input_4
+                    // '#E31A1C',   // stop_output_5
+                    // 2000,         // stop_input_5
+                    // '#BD0026',   // stop_output_6
+                    // 5000,        // stop_input_6
+                    "#800026"
+                ],
+                'fill-outline-color': '#BBBBBB',
+                'fill-opacity': 0.7,
+            }
+        },
+        {
+            'id': 'before2',
+            'type': 'fill',
+            'source': '2010_2',
+            'paint': {
+                'fill-color': [
+                    'step',
+                    ['coalesce', ['to-number', ['get', 'cleaned2010race2_Total:']], 0],
+                    '#FFEDA0',   // stop_output_0
+                    20,          // stop_input_0
+                    '#FED976',   // stop_output_1
+                    40,          // stop_input_1
+                    '#FEB24C',   // stop_output_2
+                    80,          // stop_input_2
+                    '#FD8D3C',   // stop_output_3
+                    160,         // stop_input_3
+                    '#FC4E2A',   // stop_output_4
+                    320,         // stop_input_4
+                    // '#E31A1C',   // stop_output_5
+                    // 2000,         // stop_input_5
+                    // '#BD0026',   // stop_output_6
+                    // 5000,        // stop_input_6
+                    "#800026"
+                ],
+                'fill-outline-color': '#BBBBBB',
+                'fill-opacity': 0.7,
+            }
+        },
+        {
+            'id': 'before3',
+            'type': 'fill',
+            'source': '2010_3',
+            'paint': {
+                'fill-color': [
+                    'step',
+                    ['coalesce', ['to-number', ['get', 'cleaned2010race2_Total:']], 0],
+                    '#FFEDA0',   // stop_output_0
+                    20,          // stop_input_0
+                    '#FED976',   // stop_output_1
+                    40,          // stop_input_1
+                    '#FEB24C',   // stop_output_2
+                    80,          // stop_input_2
+                    '#FD8D3C',   // stop_output_3
+                    160,         // stop_input_3
+                    '#FC4E2A',   // stop_output_4
+                    320,         // stop_input_4
+                    // '#E31A1C',   // stop_output_5
+                    // 2000,         // stop_input_5
+                    // '#BD0026',   // stop_output_6
+                    // 5000,        // stop_input_6
+                    "#800026"
+                ],
+                'fill-outline-color': '#BBBBBB',
+                'fill-opacity': 0.7,
+            }
+        },
+        {
+            'id': 'before4',
+            'type': 'fill',
+            'source': '2010_4',
+            'paint': {
+                'fill-color': [
+                    'step',
+                    ['coalesce', ['to-number', ['get', 'cleaned2010race2_Total:']], 0],
+                    '#FFEDA0',   // stop_output_0
+                    20,          // stop_input_0
+                    '#FED976',   // stop_output_1
+                    40,          // stop_input_1
+                    '#FEB24C',   // stop_output_2
+                    80,          // stop_input_2
+                    '#FD8D3C',   // stop_output_3
+                    160,         // stop_input_3
+                    '#FC4E2A',   // stop_output_4
+                    320,         // stop_input_4
+                    // '#E31A1C',   // stop_output_5
+                    // 2000,         // stop_input_5
+                    // '#BD0026',   // stop_output_6
+                    // 5000,        // stop_input_6
+                    "#800026"
+                ],
+                'fill-outline-color': '#BBBBBB',
+                'fill-opacity': 0.7,
+            }
+        },
+        {
+            'id': 'before5',
+            'type': 'fill',
+            'source': '2010_5',
+            'paint': {
+                'fill-color': [
+                    'step',
+                    ['coalesce', ['to-number', ['get', 'cleaned2010race2_Total:']], 0],
+                    '#FFEDA0',   // stop_output_0
+                    20,          // stop_input_0
+                    '#FED976',   // stop_output_1
+                    40,          // stop_input_1
+                    '#FEB24C',   // stop_output_2
+                    80,          // stop_input_2
+                    '#FD8D3C',   // stop_output_3
+                    160,         // stop_input_3
+                    '#FC4E2A',   // stop_output_4
+                    320,         // stop_input_4
+                    // '#E31A1C',   // stop_output_5
+                    // 2000,         // stop_input_5
+                    // '#BD0026',   // stop_output_6
+                    // 5000,        // stop_input_6
+                    "#800026"
+                ],
+                'fill-outline-color': '#BBBBBB',
+                'fill-opacity': 0.7,
+            }
+        },
+        {
+            'id': 'before6',
+            'type': 'fill',
+            'source': '2010_6',
+            'paint': {
+                'fill-color': [
+                    'step',
+                    ['coalesce', ['to-number', ['get', 'cleaned2010race2_Total:']], 0],
+                    '#FFEDA0',   // stop_output_0
+                    20,          // stop_input_0
+                    '#FED976',   // stop_output_1
+                    40,          // stop_input_1
+                    '#FEB24C',   // stop_output_2
+                    80,          // stop_input_2
+                    '#FD8D3C',   // stop_output_3
+                    160,         // stop_input_3
+                    '#FC4E2A',   // stop_output_4
+                    320,         // stop_input_4
+                    // '#E31A1C',   // stop_output_5
+                    // 2000,         // stop_input_5
+                    // '#BD0026',   // stop_output_6
+                    // 5000,        // stop_input_6
+                    "#800026"
+                ],
+                'fill-outline-color': '#BBBBBB',
+                'fill-opacity': 0.7,
+            }
+        },
+        {
+            'id': 'before7',
+            'type': 'fill',
+            'source': '2010_7',
+            'paint': {
+                'fill-color': [
+                    'step',
+                    ['coalesce', ['to-number', ['get', 'cleaned2010race2_Total:']], 0],
+                    '#FFEDA0',   // stop_output_0
+                    20,          // stop_input_0
+                    '#FED976',   // stop_output_1
+                    40,          // stop_input_1
+                    '#FEB24C',   // stop_output_2
+                    80,          // stop_input_2
+                    '#FD8D3C',   // stop_output_3
+                    160,         // stop_input_3
+                    '#FC4E2A',   // stop_output_4
+                    320,         // stop_input_4
+                    // '#E31A1C',   // stop_output_5
+                    // 2000,         // stop_input_5
+                    // '#BD0026',   // stop_output_6
+                    // 5000,        // stop_input_6
+                    "#800026"
+                ],
+                'fill-outline-color': '#BBBBBB',
+                'fill-opacity': 0.7,
+            }
+        },
+        {
+            'id': 'before8',
+            'type': 'fill',
+            'source': '2010_8',
+            'paint': {
+                'fill-color': [
+                    'step',
+                    ['coalesce', ['to-number', ['get', 'cleaned2010race2_Total:']], 0],
+                    '#FFEDA0',   // stop_output_0
+                    20,          // stop_input_0
+                    '#FED976',   // stop_output_1
+                    40,          // stop_input_1
+                    '#FEB24C',   // stop_output_2
+                    80,          // stop_input_2
+                    '#FD8D3C',   // stop_output_3
+                    160,         // stop_input_3
+                    '#FC4E2A',   // stop_output_4
+                    320,         // stop_input_4
+                    // '#E31A1C',   // stop_output_5
+                    // 2000,         // stop_input_5
+                    // '#BD0026',   // stop_output_6
+                    // 5000,        // stop_input_6
+                    "#800026"
+                ],
+                'fill-outline-color': '#BBBBBB',
+                'fill-opacity': 0.7,
+            }
+        },
+        {
+            'id': 'before9',
+            'type': 'fill',
+            'source': '2010_9',
+            'paint': {
+                'fill-color': [
+                    'step',
+                    ['coalesce', ['to-number', ['get', 'cleaned2010race2_Total:']], 0],
+                    '#FFEDA0',   // stop_output_0
+                    20,          // stop_input_0
+                    '#FED976',   // stop_output_1
+                    40,          // stop_input_1
+                    '#FEB24C',   // stop_output_2
+                    80,          // stop_input_2
+                    '#FD8D3C',   // stop_output_3
+                    160,         // stop_input_3
+                    '#FC4E2A',   // stop_output_4
+                    320,         // stop_input_4
+                    // '#E31A1C',   // stop_output_5
+                    // 2000,         // stop_input_5
+                    // '#BD0026',   // stop_output_6
+                    // 5000,        // stop_input_6
+                    "#800026"
+                ],
+                'fill-outline-color': '#BBBBBB',
+                'fill-opacity': 0.7,
+            }
+        },
+        {
+            'id': 'before10',
+            'type': 'fill',
+            'source': '2010_10',
+            'paint': {
+                'fill-color': [
+                    'step',
+                    ['coalesce', ['to-number', ['get', 'cleaned2010race2_Total:']], 0],
+                    '#FFEDA0',   // stop_output_0
+                    20,          // stop_input_0
+                    '#FED976',   // stop_output_1
+                    40,          // stop_input_1
+                    '#FEB24C',   // stop_output_2
+                    80,          // stop_input_2
+                    '#FD8D3C',   // stop_output_3
+                    160,         // stop_input_3
+                    '#FC4E2A',   // stop_output_4
+                    320,         // stop_input_4
+                    // '#E31A1C',   // stop_output_5
+                    // 2000,         // stop_input_5
+                    // '#BD0026',   // stop_output_6
+                    // 5000,        // stop_input_6
+                    "#800026"
+                ],
+                'fill-outline-color': '#BBBBBB',
+                'fill-opacity': 0.7,
+            }
+        }
+    ]
+    
+    layers2010.forEach(layer => {
+        beforeMap.addLayer(layer);
+      });
 
     const layers = [
         '0-20',
@@ -140,39 +434,110 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGltZW50aW8iLCJhIjoiY2xhMngzZmEyMDRtdDN2bW93M
     });
 
     afterMap.on('load', () => {
-        afterMap.addSource('2020', {
+        afterMap.addSource('2020_1', {
         type: 'geojson',
-        data: 'assets/2020displacementdata.geojson'
-    });
+        data: 'assets/New folder/output2020_1.geojson'
+    },
+    afterMap.addSource('2020_2', {
+        type: 'geojson',
+        data: 'assets/New folder/output2020_2.geojson'
+    },
+    afterMap.addSource('2020_3', {
+        type: 'geojson',
+        data: 'assets/New folder/output2020_3.geojson'
+    }
+    )));
 
-    afterMap.addLayer({
-        'id': 'after',
-        'type': 'fill',
-        'source': '2020',
-        'paint': {
-            'fill-color': [
-                'step',
-                ['coalesce', ['to-number', ['get', 'joinednewfinal_total']], 0],
-                '#FFEDA0',   // stop_output_0
-                20,          // stop_input_0
-                '#FED976',   // stop_output_1
-                40,          // stop_input_1
-                '#FEB24C',   // stop_output_2
-                80,          // stop_input_2
-                '#FD8D3C',   // stop_output_3
-                160,         // stop_input_3
-                '#FC4E2A',   // stop_output_4
-                320,         // stop_input_4
-                // '#E31A1C',   // stop_output_5
-                // 2000,         // stop_input_5
-                // '#BD0026',   // stop_output_6
-                // 5000,        // stop_input_6
-                "#800026"
-            ],
-            'fill-outline-color': '#BBBBBB',
-            'fill-opacity': 0.7,
+    const layers2020 = [
+        {
+            'id': 'after1',
+            'type': 'fill',
+            'source': '2020_1',
+            'paint': {
+                'fill-color': [
+                    'step',
+                    ['coalesce', ['to-number', ['get', 'joinednewfinal_total']], 0],
+                    '#FFEDA0',   // stop_output_0
+                    20,          // stop_input_0
+                    '#FED976',   // stop_output_1
+                    40,          // stop_input_1
+                    '#FEB24C',   // stop_output_2
+                    80,          // stop_input_2
+                    '#FD8D3C',   // stop_output_3
+                    160,         // stop_input_3
+                    '#FC4E2A',   // stop_output_4
+                    320,         // stop_input_4
+                    // '#E31A1C',   // stop_output_5
+                    // 2000,         // stop_input_5
+                    // '#BD0026',   // stop_output_6
+                    // 5000,        // stop_input_6
+                    "#800026"
+                ],
+                'fill-outline-color': '#BBBBBB',
+                'fill-opacity': 0.7,
+            }
+        },
+        {
+            'id': 'after2',
+            'type': 'fill',
+            'source': '2020_2',
+            'paint': {
+                'fill-color': [
+                    'step',
+                    ['coalesce', ['to-number', ['get', 'joinednewfinal_total']], 0],
+                    '#FFEDA0',   // stop_output_0
+                    20,          // stop_input_0
+                    '#FED976',   // stop_output_1
+                    40,          // stop_input_1
+                    '#FEB24C',   // stop_output_2
+                    80,          // stop_input_2
+                    '#FD8D3C',   // stop_output_3
+                    160,         // stop_input_3
+                    '#FC4E2A',   // stop_output_4
+                    320,         // stop_input_4
+                    // '#E31A1C',   // stop_output_5
+                    // 2000,         // stop_input_5
+                    // '#BD0026',   // stop_output_6
+                    // 5000,        // stop_input_6
+                    "#800026"
+                ],
+                'fill-outline-color': '#BBBBBB',
+                'fill-opacity': 0.7,
+            }
+        },
+        {
+            'id': 'after3',
+            'type': 'fill',
+            'source': '2020_3',
+            'paint': {
+                'fill-color': [
+                    'step',
+                    ['coalesce', ['to-number', ['get', 'joinednewfinal_total']], 0],
+                    '#FFEDA0',   // stop_output_0
+                    20,          // stop_input_0
+                    '#FED976',   // stop_output_1
+                    40,          // stop_input_1
+                    '#FEB24C',   // stop_output_2
+                    80,          // stop_input_2
+                    '#FD8D3C',   // stop_output_3
+                    160,         // stop_input_3
+                    '#FC4E2A',   // stop_output_4
+                    320,         // stop_input_4
+                    // '#E31A1C',   // stop_output_5
+                    // 2000,         // stop_input_5
+                    // '#BD0026',   // stop_output_6
+                    // 5000,        // stop_input_6
+                    "#800026"
+                ],
+                'fill-outline-color': '#BBBBBB',
+                'fill-opacity': 0.7,
+            }
         }
-    });
+    ]
+
+    layers2020.forEach(layer => {
+        afterMap.addLayer(layer);
+      });
 
     const layers = [
         '0-20',
