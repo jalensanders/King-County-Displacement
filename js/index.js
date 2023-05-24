@@ -4,47 +4,68 @@ function handleSwitch(filterVar) {
     const splitVar = filterVar.split('-');
     let variable2010 = splitVar[0];
     let variable2020 = splitVar[1];
-    setToggle(variable2020);
 
-    beforeMap.setPaintProperty("before1", 'fill-color', [
+    const races = ['White', 'Black', 'Asian', 'Hispanic', 'Native', 'Hawaiian/PI'];
+    if (variable2020 === 'joinednewfinal_white_alone') {
+        setToggle(races[0]);
+    } else if (variable2020 === 'joinednewfinal_black_or_aa_alone') {
+        setToggle(races[1]);
+    } else if (variable2020 === 'joinednewfinal_asian_alone') {
+        setToggle(races[2]);
+    } else if (variable2020 === 'hispanic_P2_002N') {
+        setToggle(races[3]);
+    } else if (variable2020 === 'joinednewfinal_amerind_or_alaskanative_alone') {
+        setToggle(races[4]);
+    } else if (variable2020 === 'joinednewfinal_native_hawaiian_pacific_islander_alone') {
+        setToggle(races[5]);
+    };    
+
+    const layerID2020 = ['after1', 'after2', 'after3'];
+    const layerID2010 = ['before1', 'before2', 'before3', 'before4', 'before5', 'before6', 'before7', 'before8', 'before9', 'before10'];
+
+    layerID2010.forEach((layerID) => {
+        beforeMap.setPaintProperty(layerID, 'fill-color', [
         'step',
         ['to-number', ['get', variable2010]],
-        '#FFEDA0',   // stop_output_0
-        5,          // stop_input_0
-        '#FED976',   // stop_output_1
-        10,          // stop_input_1
-        '#FEB24C',   // stop_output_2
-        20,          // stop_input_2
-        '#FD8D3C',   // stop_output_3
-        40,         // stop_input_3
-        '#FC4E2A',   // stop_output_4
-        60,         // stop_input_4
-        // '#E31A1C',   // stop_output_5
-        // 2000,         // stop_input_5
-        // '#BD0026',   // stop_output_6
-        // 5000,        // stop_input_6
-        "#800026"
-    ]);
+            '#FFEDA0',   // stop_output_0
+            20,          // stop_input_0
+            '#FED976',   // stop_output_1
+            40,          // stop_input_1
+            '#FEB24C',   // stop_output_2
+            80,          // stop_input_2
+            '#FD8D3C',   // stop_output_3
+            160,         // stop_input_3
+            '#FC4E2A',   // stop_output_4
+            320,         // stop_input_4
+            // '#E31A1C',   // stop_output_5
+            // 2000,         // stop_input_5
+            // '#BD0026',   // stop_output_6
+            // 5000,        // stop_input_6
+            "#800026"
+        ]);
+    })
 
-    afterMap.setPaintProperty("after1", 'fill-color', [
+    layerID2020.forEach((layerID) => {
+        afterMap.setPaintProperty(layerID, 'fill-color', [
         'step',
         ['to-number', ['get', variable2020]],
-        '#FFEDA0',   // stop_output_0
-        5,          // stop_input_0
-        '#FED976',   // stop_output_1
-        10,          // stop_input_1
-        '#FEB24C',   // stop_output_2
-        20,          // stop_input_2
-        '#FD8D3C',   // stop_output_3
-        40,         // stop_input_3
-        '#FC4E2A',   // stop_output_4
-        60,         // stop_input_4
-        // '#E31A1C',   // stop_output_5
-        // 2000,         // stop_input_5
-        // '#BD0026',   // stop_output_6
-        // 5000,        // stop_input_6
-        "#800026"
-    ]);
+            '#FFEDA0',   // stop_output_0
+            20,          // stop_input_0
+            '#FED976',   // stop_output_1
+            40,          // stop_input_1
+            '#FEB24C',   // stop_output_2
+            80,          // stop_input_2
+            '#FD8D3C',   // stop_output_3
+            160,         // stop_input_3
+            '#FC4E2A',   // stop_output_4
+            320,         // stop_input_4
+            // '#E31A1C',   // stop_output_5
+            // 2000,         // stop_input_5
+            // '#BD0026',   // stop_output_6
+            // 5000,        // stop_input_6
+            "#800026"
+        ]);
+    })    
 };
 
 function setToggle(variable) {
@@ -557,7 +578,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGltZW50aW8iLCJhIjoiY2xhMngzZmEyMDRtdDN2bW93M
     ];
     
     const legend = document.getElementById('legend');
-    legend.innerHTML = "<b>Population of<br> demographic</b><br><b>()</b>";
+    legend.innerHTML = "<b>Population<br></b><br><b></b>";
     layers.forEach((layer, i) => {
         const color = colors[i];
         const item = document.createElement('div');
@@ -579,96 +600,3 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGltZW50aW8iLCJhIjoiY2xhMngzZmEyMDRtdDN2bW93M
         // Set this to enable comparing two maps by mouse movement:
         // mousemove: true
     });
-
-
-//testing the percentage change
-// async function a() {
-//     const a2020 = await fetch('assets/2020displacementdata.geojson');
-//     const b = await a2020.json();
-//     console.log(b)
-//     // BLOCK_LBL2: "Block 1011"
-//     // DECENNIALPL2020.P2-Data_NAME: "Block 1011, Block Group 1, Census Tract 108, King County, Washington"
-//     const a2010 = await fetch('assets/2010displacementdata.geojson');
-//     const c = await a2010.json();
-//     console.log(c)
-//     // Block 1000, Block Group 1, Census Tract 1, King County, Washington
-//     let changeWhite = [];
-//     let changeWhiteBlock = [];
-//     for (let i = 0; i<b.features.length; i++) {
-//         let x = b.features[i].properties.joinednewfinal_white_alone;
-//         for (let j = 0; j < c.features.length; j++) {
-//             // if (c.features[j].properties['cleaned2010race2_Label (Grouping)'] === b.features[i].properties.DECENNIALPL2020.P2-Data_NAME) {
-//             //     
-//             // }
-//             console.log(c.features[j].properties['cleaned2010race2_Label (Grouping)'])
-//         }
-//         let y = c.features[5000].properties.cleaned2010race2_one_white_alone;
-//         if (y > 0){
-//             changeWhite.push(((x - y) / y) * 100);
-//             changeWhiteBlock.push(b.features[i].geometry);
-//         }
-//     }
-    
-//     const features = changeWhiteBlock.map((geometry, index) => {
-//         return {
-//           type: "Feature",
-//           geometry: geometry,
-//           properties: {changeWhite: changeWhite[index]} // Add properties as needed
-//         };
-//       });
-
-//     const newGeo = {
-//     type: "FeatureCollection",
-//     features: features
-//     };
-
-//     return newGeo
-// }
-
-// const afterMap = new mapboxgl.Map({
-//     container: 'after',
-//     style: 'mapbox://styles/mapbox/dark-v11',
-//     center: [-122.3314, 47.5989],
-//     zoom: 9
-// });
-
-
-// afterMap.on('load', async () => {
-// afterMap.addSource('percentage', {
-// type: 'geojson',
-// data: await a()
-// });
-
-// afterMap.addLayer({
-//     'id': 'after',
-//     'type': 'fill',
-//     'source': 'percentage',
-//     'paint': {
-//         'fill-color': [
-//             'step',
-//             ['coalesce', ['to-number', ['get', 'changeWhite']], 0],
-//             '#FFEDA0',   // stop_output_0
-//             -100,          // stop_input_0
-//             '#FED976',   // stop_output_1
-//             -65,          // stop_input_1
-//             '#FEB24C',   // stop_output_2
-//             -30,          // stop_input_2
-//             '#FD8D3C',   // stop_output_3
-//             0,
-//             'blue',
-//             5,         // stop_input_3
-//             '#FC4E2A',   // stop_output_4
-//             40,         // stop_input_4
-//             '#E31A1C',   // stop_output_5
-//             75,         // stop_input_5
-//             '#BD0026',   // stop_output_6
-//             100,        // stop_input_6
-//             "#800026",
-//             200,
-//             'black'
-//         ],
-//         'fill-outline-color': '#BBBBBB',
-//         'fill-opacity': 0.7,
-// }
-// });
-// })
