@@ -85,43 +85,43 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGltZW50aW8iLCJhIjoiY2xhMngzZmEyMDRtdDN2bW93M
     beforeMap.on('load', () => {
         beforeMap.addSource('2010_1', {
         type: 'geojson',
-        data: 'assets/New folder/output2010_1.geojson'
+        data: 'assets/output2010_1.geojson'
         },
         beforeMap.addSource('2010_2', {
             type: 'geojson',
-            data: 'assets/New folder/output2010_2.geojson'
+            data: 'assets/output2010_2.geojson'
         },
         beforeMap.addSource('2010_3', {
             type: 'geojson',
-            data: 'assets/New folder/output2010_3.geojson'
+            data: 'assets/output2010_3.geojson'
         },
         beforeMap.addSource('2010_4', {
             type: 'geojson',
-            data: 'assets/New folder/output2010_4.geojson'
+            data: 'assets/output2010_4.geojson'
         },
         beforeMap.addSource('2010_5', {
             type: 'geojson',
-            data: 'assets/New folder/output2010_5.geojson'
+            data: 'assets/output2010_5.geojson'
         },
         beforeMap.addSource('2010_6', {
             type: 'geojson',
-            data: 'assets/New folder/output2010_6.geojson'
+            data: 'assets/output2010_6.geojson'
         },
         beforeMap.addSource('2010_7', {
             type: 'geojson',
-            data: 'assets/New folder/output2010_7.geojson'
+            data: 'assets/output2010_7.geojson'
         },
         beforeMap.addSource('2010_8', {
             type: 'geojson',
-            data: 'assets/New folder/output2010_8.geojson'
+            data: 'assets/output2010_8.geojson'
         },
         beforeMap.addSource('2010_9', {
             type: 'geojson',
-            data: 'assets/New folder/output2010_9.geojson'
+            data: 'assets/output2010_9.geojson'
         },
         beforeMap.addSource('2010_10', {
             type: 'geojson',
-            data: 'assets/New folder/output2010_10.geojson'
+            data: 'assets/output2010_10.geojson'
         }
         ))))))))));
 
@@ -457,15 +457,15 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGltZW50aW8iLCJhIjoiY2xhMngzZmEyMDRtdDN2bW93M
     afterMap.on('load', () => {
         afterMap.addSource('2020_1', {
         type: 'geojson',
-        data: 'assets/New folder/output2020_1.geojson'
+        data: 'assets/output2020_1.geojson'
     },
     afterMap.addSource('2020_2', {
         type: 'geojson',
-        data: 'assets/New folder/output2020_2.geojson'
+        data: 'assets/output2020_2.geojson'
     },
     afterMap.addSource('2020_3', {
         type: 'geojson',
-        data: 'assets/New folder/output2020_3.geojson'
+        data: 'assets/output2020_3.geojson'
     }
     )));
 
