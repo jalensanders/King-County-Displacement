@@ -30,15 +30,37 @@ user-select: none;
 
 .map {
   position: absolute;
-  top: 21%;
+  top: 28%;
   bottom: 0;
   width: 97.5%;
 }
 
+.map2 {
+  height: 700px;
+  margin-top: 20px;
+}
+
+.mapboxgl-compare {
+  height: 700px;
+}
 
 .map-overlay {
   position: absolute;
-  top: 190px;
+  top: 28.5%;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgba(0, 0, 0, 0.2);
+  margin-left: 20px;
+  font-family: 'Open Sans', sans-serif;
+  overflow: auto;
+  border-radius: 3px;
+}
+
+.map-overlay2 {
+  position: absolute;
+  top: 159%;
   right: 20px;
   background: rgba(255, 255, 255, 0.8);
   border-style: solid;
@@ -55,13 +77,17 @@ user-select: none;
   overflow: auto;
 }
 
-#legend {
+#legend, #legend2 {
   padding: 10px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   line-height: 16px;
   height: 180px;
   margin-bottom: 40px;
   width: 150px;
+}
+
+#legend2 {
+  height: 220px;
 }
 
 .legend-key {

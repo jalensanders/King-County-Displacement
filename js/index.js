@@ -4,6 +4,8 @@ function handleSwitch(filterVar) {
     const splitVar = filterVar.split('-');
     let variable2010 = splitVar[0];
     let variable2020 = splitVar[1];
+    let variablePercent = splitVar[2];
+    console.log(variablePercent);
 
     const races = ['White', 'Black', 'Asian', 'Hispanic', 'Native', 'Hawaiian/PI'];
     if (variable2020 === 'joinednewfinal_white_alone') {
@@ -65,7 +67,30 @@ function handleSwitch(filterVar) {
             // 5000,        // stop_input_6
             "#800026"
         ]);
-    })    
+    })
+
+    perMap.setPaintProperty("per_change_layer", 'fill-color', [
+        'step',
+        ['to-number', ['get', variablePercent]],
+        '#FFEDA0',   // stop_output_0
+        -75,        // stop_input_0
+        '#FED976',   // stop_output_1
+        -50,         // stop_input_1
+        '#FEB24C',   // stop_output_2
+        -25,         // stop_input_2
+        '#FD8D3C',   // stop_output_3
+        0,         // stop_input_3
+        '#000000',
+        0.000001,
+        '#FC4E2A',   // stop_output_4
+        25,           // stop_input_4
+        '#E31A1C',   // stop_output_5
+        50,          // stop_input_5
+        '#BD0026',   // stop_output_6
+        75,          // stop_input_6
+        "#800026"    // stop_output_7
+    ]);    
+    
 };
 
 function setToggle(variable) {
@@ -421,16 +446,16 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGltZW50aW8iLCJhIjoiY2xhMngzZmEyMDRtdDN2bW93M
         '320+'
     ];
     const colors = [
+        '#FFEDA0',
         '#FED976',
         '#FEB24C',
         '#FD8D3C',
         '#FC4E2A',
-        '#E31A1C',
         '#800026'
     ];
     
     const legend = document.getElementById('legend');
-    legend.innerHTML = "<b>Population of<br> demographic</b><br><b>()</b>";
+    legend.innerHTML = "<b>Population<br></b><br><b></b>";
     layers.forEach((layer, i) => {
         const color = colors[i];
         const item = document.createElement('div');
@@ -560,38 +585,6 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGltZW50aW8iLCJhIjoiY2xhMngzZmEyMDRtdDN2bW93M
         afterMap.addLayer(layer);
       });
 
-    const layers = [
-        '0-20',
-        '21-40',
-        '41-80',
-        '81-160',
-        '161-320',
-        '320+'
-    ];
-    const colors = [
-        '#FED976',
-        '#FEB24C',
-        '#FD8D3C',
-        '#FC4E2A',
-        '#E31A1C',
-        '#800026'
-    ];
-    
-    const legend = document.getElementById('legend');
-    legend.innerHTML = "<b>Population<br></b><br><b></b>";
-    layers.forEach((layer, i) => {
-        const color = colors[i];
-        const item = document.createElement('div');
-        const key = document.createElement('span');
-        key.className = 'legend-key';
-        key.style.backgroundColor = color;
-    
-        const value = document.createElement('span');
-        value.innerHTML = `${layer}`;
-        item.appendChild(key);
-        item.appendChild(value);
-        legend.appendChild(item);
-    });
 })
     // A selector or reference to HTML element
     const container = '#comparison-container';
@@ -600,3 +593,93 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGltZW50aW8iLCJhIjoiY2xhMngzZmEyMDRtdDN2bW93M
         // Set this to enable comparing two maps by mouse movement:
         // mousemove: true
     });
+
+
+    // percentage change map
+    const perMap = new mapboxgl.Map({
+        container: 'per_change',
+        // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
+        style: 'mapbox://styles/mapbox/light-v11',
+        center: [-121.78956760516976, 47.47222353691079],
+        zoom: 9
+    });
+
+    perMap.on('load', () => {
+        perMap.addSource('percent_change', {
+        type: 'geojson',
+        data: 'assets/per_change.geojson'
+        })
+
+        perMap.addLayer({
+            'id': 'per_change_layer',
+            'type': 'fill',
+            'source': 'percent_change',
+            'paint': {
+              'fill-color': [
+                'step',
+                ['coalesce', ['to-number', ['get', 'per_total']], 0], // cast Pop2010 to a number
+                '#FFEDA0',   // stop_output_0
+                -75,        // stop_input_0
+                '#FED976',   // stop_output_1
+                -50,         // stop_input_1
+                '#FEB24C',   // stop_output_2
+                -25,         // stop_input_2
+                '#FD8D3C',   // stop_output_3
+                0,         // stop_input_3
+                '#000000',
+                0.000001,
+                '#FC4E2A',   // stop_output_4
+                25,           // stop_input_4
+                '#E31A1C',   // stop_output_5
+                50,          // stop_input_5
+                '#BD0026',   // stop_output_6
+                75,          // stop_input_6
+                "#800026"    // stop_output_7
+              ],
+              'fill-outline-color': '#BBBBBB',
+              'fill-opacity': 0.7,
+            }
+          });
+          
+          
+        const layers2 = [
+            '-100 to -76',
+            '-75 to -51',
+            '-50 to -26',
+            '-25 to -0.01',
+            '0',
+            '0.01 to 24',
+            '25 to 49', 
+            '50 to 74',
+            '75 or above'
+        ];
+        const colors2 = [
+            '#FFEDA0',
+            '#FED976',
+            '#FEB24C',
+            '#FD8D3C',
+            '#000000',
+            '#FC4E2A',
+            '#E31A1C',
+            '#BD0026',
+            '#800026',
+        ];
+        
+        const legend2 = document.getElementById('legend2');
+        legend2.innerHTML = "<b>Approximate Percent Change<br><b>(%)</b>";
+        layers2.forEach((layer, i) => {
+            const color = colors2[i];
+            const item = document.createElement('div');
+            const key = document.createElement('span');
+            key.className = 'legend-key';
+            key.style.backgroundColor = color;
+        
+            const value = document.createElement('span');
+            value.innerHTML = `${layer}`;
+            item.appendChild(key);
+            item.appendChild(value);
+            legend2.appendChild(item);
+        });
+    });
+
+    
