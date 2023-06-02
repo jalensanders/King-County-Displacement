@@ -176,7 +176,6 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGltZW50aW8iLCJhIjoiY2xhMngzZmEyMDRtdDN2bW93M
                     // 5000,        // stop_input_6
                     "#800026"
                 ],
-                'fill-outline-color': '#BBBBBB',
                 'fill-opacity': 0.7,
             }
         },
@@ -204,7 +203,6 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGltZW50aW8iLCJhIjoiY2xhMngzZmEyMDRtdDN2bW93M
                     // 5000,        // stop_input_6
                     "#800026"
                 ],
-                'fill-outline-color': '#BBBBBB',
                 'fill-opacity': 0.7,
             }
         },
@@ -232,7 +230,6 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGltZW50aW8iLCJhIjoiY2xhMngzZmEyMDRtdDN2bW93M
                     // 5000,        // stop_input_6
                     "#800026"
                 ],
-                'fill-outline-color': '#BBBBBB',
                 'fill-opacity': 0.7,
             }
         },
@@ -260,7 +257,6 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGltZW50aW8iLCJhIjoiY2xhMngzZmEyMDRtdDN2bW93M
                     // 5000,        // stop_input_6
                     "#800026"
                 ],
-                'fill-outline-color': '#BBBBBB',
                 'fill-opacity': 0.7,
             }
         },
@@ -288,7 +284,6 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGltZW50aW8iLCJhIjoiY2xhMngzZmEyMDRtdDN2bW93M
                     // 5000,        // stop_input_6
                     "#800026"
                 ],
-                'fill-outline-color': '#BBBBBB',
                 'fill-opacity': 0.7,
             }
         },
@@ -316,7 +311,6 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGltZW50aW8iLCJhIjoiY2xhMngzZmEyMDRtdDN2bW93M
                     // 5000,        // stop_input_6
                     "#800026"
                 ],
-                'fill-outline-color': '#BBBBBB',
                 'fill-opacity': 0.7,
             }
         },
@@ -344,7 +338,6 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGltZW50aW8iLCJhIjoiY2xhMngzZmEyMDRtdDN2bW93M
                     // 5000,        // stop_input_6
                     "#800026"
                 ],
-                'fill-outline-color': '#BBBBBB',
                 'fill-opacity': 0.7,
             }
         },
@@ -372,7 +365,6 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGltZW50aW8iLCJhIjoiY2xhMngzZmEyMDRtdDN2bW93M
                     // 5000,        // stop_input_6
                     "#800026"
                 ],
-                'fill-outline-color': '#BBBBBB',
                 'fill-opacity': 0.7,
             }
         },
@@ -400,7 +392,6 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGltZW50aW8iLCJhIjoiY2xhMngzZmEyMDRtdDN2bW93M
                     // 5000,        // stop_input_6
                     "#800026"
                 ],
-                'fill-outline-color': '#BBBBBB',
                 'fill-opacity': 0.7,
             }
         },
@@ -428,7 +419,6 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGltZW50aW8iLCJhIjoiY2xhMngzZmEyMDRtdDN2bW93M
                     // 5000,        // stop_input_6
                     "#800026"
                 ],
-                'fill-outline-color': '#BBBBBB',
                 'fill-opacity': 0.7,
             }
         }
@@ -520,7 +510,6 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGltZW50aW8iLCJhIjoiY2xhMngzZmEyMDRtdDN2bW93M
                     // 5000,        // stop_input_6
                     "#800026"
                 ],
-                'fill-outline-color': '#BBBBBB',
                 'fill-opacity': 0.7,
             }
         },
@@ -548,7 +537,6 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGltZW50aW8iLCJhIjoiY2xhMngzZmEyMDRtdDN2bW93M
                     // 5000,        // stop_input_6
                     "#800026"
                 ],
-                'fill-outline-color': '#BBBBBB',
                 'fill-opacity': 0.7,
             }
         },
@@ -576,7 +564,6 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGltZW50aW8iLCJhIjoiY2xhMngzZmEyMDRtdDN2bW93M
                     // 5000,        // stop_input_6
                     "#800026"
                 ],
-                'fill-outline-color': '#BBBBBB',
                 'fill-opacity': 0.7,
             }
         }
@@ -627,7 +614,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGltZW50aW8iLCJhIjoiY2xhMngzZmEyMDRtdDN2bW93M
                 -25,         // stop_input_2
                 '#FD8D3C',   // stop_output_3
                 0,         // stop_input_3
-                '#000000',
+                '#f0f0f5',
                 0.000001,
                 '#FC4E2A',   // stop_output_4
                 25,           // stop_input_4
@@ -637,8 +624,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGltZW50aW8iLCJhIjoiY2xhMngzZmEyMDRtdDN2bW93M
                 75,          // stop_input_6
                 "#800026"    // stop_output_7
               ],
-              'fill-outline-color': '#BBBBBB',
-              'fill-opacity': 0.7,
+              'fill-opacity': 0.7
             }
           });
           
@@ -659,7 +645,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGltZW50aW8iLCJhIjoiY2xhMngzZmEyMDRtdDN2bW93M
             '#FED976',
             '#FEB24C',
             '#FD8D3C',
-            '#000000',
+            '#f0f0f5',
             '#FC4E2A',
             '#E31A1C',
             '#BD0026',
@@ -682,5 +668,6 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGltZW50aW8iLCJhIjoiY2xhMngzZmEyMDRtdDN2bW93M
             legend2.appendChild(item);
         });
     });
+
 
     

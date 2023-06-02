@@ -1,3 +1,6 @@
+canvas {
+  outline: none;
+}
 
 #container {
   display: flex;
