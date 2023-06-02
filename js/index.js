@@ -107,6 +107,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGltZW50aW8iLCJhIjoiY2xhMngzZmEyMDRtdDN2bW93M
         zoom: 9
     });
 
+
     beforeMap.on('load', () => {
         beforeMap.addSource('2010_1', {
         type: 'geojson',
@@ -455,7 +456,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGltZW50aW8iLCJhIjoiY2xhMngzZmEyMDRtdDN2bW93M
     ];
     
     const legend = document.getElementById('legend');
-    legend.innerHTML = "<b>Population<br></b><br><b></b>";
+    legend.innerHTML = "<b>Race Population<br></b><br><b></b>";
     layers.forEach((layer, i) => {
         const color = colors[i];
         const item = document.createElement('div');
@@ -474,7 +475,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGltZW50aW8iLCJhIjoiY2xhMngzZmEyMDRtdDN2bW93M
 
     const afterMap = new mapboxgl.Map({
         container: 'after',
-        style: 'mapbox://styles/mapbox/dark-v11',
+        style: 'mapbox://styles/mapbox/light-v11',
         center: [-121.78956760516976, 47.47222353691079],
         zoom: 9
     });
@@ -664,7 +665,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGltZW50aW8iLCJhIjoiY2xhMngzZmEyMDRtdDN2bW93M
             '#BD0026',
             '#800026',
         ];
-        
+
         const legend2 = document.getElementById('legend2');
         legend2.innerHTML = "<b>Approximate Percent Change<br><b>(%)</b>";
         layers2.forEach((layer, i) => {

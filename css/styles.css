@@ -1,3 +1,19 @@
+
+#container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.left, .right {
+  flex: 1;
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}
+
+
 body { 
   margin: 0; 
   padding: 0; 
