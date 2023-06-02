@@ -1,11 +1,17 @@
+let variable2010G = 'cleaned2010race2_Total:';
+let variable2020G = 'joinednewfinal_total';
+let variablePercentG = 'per_total';
+
 // function to toggle data
 
 function handleSwitch(filterVar) {
     const splitVar = filterVar.split('-');
     let variable2010 = splitVar[0];
+    variable2010G = variable2010;
     let variable2020 = splitVar[1];
+    variable2020G = variable2020;
     let variablePercent = splitVar[2];
-    console.log(variablePercent);
+    variablePercentG = variablePercent;
 
     const races = ['White', 'Black', 'Asian', 'Hispanic', 'Native', 'Hawaiian/PI'];
     if (variable2020 === 'joinednewfinal_white_alone') {
@@ -80,7 +86,7 @@ function handleSwitch(filterVar) {
         -25,         // stop_input_2
         '#FD8D3C',   // stop_output_3
         0,         // stop_input_3
-        '#000000',
+        '#f0f0f5',
         0.000001,
         '#FC4E2A',   // stop_output_4
         25,           // stop_input_4
@@ -460,6 +466,15 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGltZW50aW8iLCJhIjoiY2xhMngzZmEyMDRtdDN2bW93M
         item.appendChild(value);
         legend.appendChild(item);
     });
+
+    beforeMap.on('mousemove', (event) => {
+        const blocks = beforeMap.queryRenderedFeatures(event.point, {
+          layers: ['before1', 'before2', 'before3', 'before4', 'before5', 'before6', 'before7', 'before8', 'before9', 'before10']
+        });
+        document.getElementById('hover').innerHTML = blocks.length
+          ? `<h4>${blocks[0].properties['hispanic_Area Name']}</h4><br/><p><strong><em>${blocks[0].properties[variable2010G]}</strong> living in this block</em></p>`
+          : `<h3>King County Population</h3><div><p>Hover over a block</p></div>`;
+    });
 })
 
 
@@ -573,6 +588,14 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGltZW50aW8iLCJhIjoiY2xhMngzZmEyMDRtdDN2bW93M
         afterMap.addLayer(layer);
       });
 
+    afterMap.on('mousemove', (event) => {
+    const blocks = afterMap.queryRenderedFeatures(event.point, {
+        layers: ['after1', 'after2', 'after3']
+    });
+    document.getElementById('hover').innerHTML = blocks.length
+        ? `<h4>${blocks[0].properties['joinednewfinal_NAME']}</h4><br/><p><strong><em>${blocks[0].properties[variable2020G]}</strong> living in this block</em></p>`
+        : `<h3>King County Population</h3><div><p>Hover over a block</p></div>`;
+    });
 })
     // A selector or reference to HTML element
     const container = '#comparison-container';
@@ -653,7 +676,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGltZW50aW8iLCJhIjoiY2xhMngzZmEyMDRtdDN2bW93M
         ];
 
         const legend2 = document.getElementById('legend2');
-        legend2.innerHTML = "<b>Approximate Percent Change<br><b>(%)</b>";
+        legend2.innerHTML = "<b>Percent Change<br><b>(%)</b>";
         layers2.forEach((layer, i) => {
             const color = colors2[i];
             const item = document.createElement('div');
@@ -667,7 +690,13 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGltZW50aW8iLCJhIjoiY2xhMngzZmEyMDRtdDN2bW93M
             item.appendChild(value);
             legend2.appendChild(item);
         });
+
+        perMap.on('mousemove', (event) => {
+            const blocks = perMap.queryRenderedFeatures(event.point, {
+              layers: ['per_change_layer']
+            });
+            document.getElementById('hover2').innerHTML = blocks.length
+              ? `<h4>${blocks[0].properties.joinednewfinal_NAME}</h4><br/><p><strong><em>${blocks[0].properties[variablePercentG]}</strong> percent change from 2010</em></p>`
+              : `<h4>King County Population Percent Change</h4><div><p>Hover over a block</p></div>`;
+        });
     });
-
-
-    

@@ -65,7 +65,7 @@ user-select: none;
 
 .map-overlay {
   position: absolute;
-  top: 28.5%;
+  top: 80%;
   right: 20px;
   background: rgba(255, 255, 255, 0.8);
   border-style: solid;
@@ -89,6 +89,36 @@ user-select: none;
   font-family: 'Open Sans', sans-serif;
   overflow: auto;
   border-radius: 3px;
+}
+
+.map-overlay3 {
+  position: absolute;
+  top: 28.5%;
+  left: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgba(0, 0, 0, 0.2);
+  margin-left: 20px;
+  font-family: 'Open Sans', sans-serif;
+  overflow: auto;
+  border-radius: 3px;
+  padding: 10px;
+}
+
+.map-overlay4 {
+  position: absolute;
+  top: 117%;
+  left: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgba(0, 0, 0, 0.2);
+  margin-left: 20px;
+  font-family: 'Open Sans', sans-serif;
+  overflow: auto;
+  border-radius: 3px;
+  padding: 10px;
 }
 
 #comparison-container {
