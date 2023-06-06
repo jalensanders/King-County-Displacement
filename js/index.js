@@ -78,13 +78,15 @@ function handleSwitch(filterVar) {
     perMap.setPaintProperty("per_change_layer", 'fill-color', [
         'step',
         ['to-number', ['get', variablePercent]],
-        '#FFEDA0',   // stop_output_0
+        '#000000',
+        -9998,
+        '#000080',   // stop_output_0
         -75,        // stop_input_0
-        '#FED976',   // stop_output_1
+        '#00008B',   // stop_output_1
         -50,         // stop_input_1
-        '#FEB24C',   // stop_output_2
+        '#0000FF',   // stop_output_2
         -25,         // stop_input_2
-        '#FD8D3C',   // stop_output_3
+        '#ADD8E6',   // stop_output_3
         0,         // stop_input_3
         '#f0f0f5',
         0.000001,
@@ -618,7 +620,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGltZW50aW8iLCJhIjoiY2xhMngzZmEyMDRtdDN2bW93M
     perMap.on('load', () => {
         perMap.addSource('percent_change', {
         type: 'geojson',
-        data: 'assets/per_change.geojson'
+        data: 'assets/per_change_new.geojson'
         })
 
         perMap.addLayer({
@@ -629,13 +631,15 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGltZW50aW8iLCJhIjoiY2xhMngzZmEyMDRtdDN2bW93M
               'fill-color': [
                 'step',
                 ['coalesce', ['to-number', ['get', 'per_total']], 0], // cast Pop2010 to a number
-                '#FFEDA0',   // stop_output_0
+                '#000000',
+                -9998,
+                '#000080',   // stop_output_0
                 -75,        // stop_input_0
-                '#FED976',   // stop_output_1
+                '#00008B',   // stop_output_1
                 -50,         // stop_input_1
-                '#FEB24C',   // stop_output_2
+                '#0000FF',   // stop_output_2
                 -25,         // stop_input_2
-                '#FD8D3C',   // stop_output_3
+                '#ADD8E6',   // stop_output_3
                 0,         // stop_input_3
                 '#f0f0f5',
                 0.000001,
@@ -653,6 +657,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGltZW50aW8iLCJhIjoiY2xhMngzZmEyMDRtdDN2bW93M
           
           
         const layers2 = [
+            'unmeaningful',
             '-100 to -76',
             '-75 to -51',
             '-50 to -26',
@@ -664,10 +669,11 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGltZW50aW8iLCJhIjoiY2xhMngzZmEyMDRtdDN2bW93M
             '75 or above'
         ];
         const colors2 = [
-            '#FFEDA0',
-            '#FED976',
-            '#FEB24C',
-            '#FD8D3C',
+            '#000000',
+            '#000080',
+            '#00008B',
+            '#0000FF',
+            '#ADD8E6',
             '#f0f0f5',
             '#FC4E2A',
             '#E31A1C',
@@ -696,7 +702,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGltZW50aW8iLCJhIjoiY2xhMngzZmEyMDRtdDN2bW93M
               layers: ['per_change_layer']
             });
             document.getElementById('hover2').innerHTML = blocks.length
-              ? `<h4>${blocks[0].properties.joinednewfinal_NAME}</h4><br/><p><strong><em>${blocks[0].properties[variablePercentG]}</strong> percent change from 2010</em></p>`
+              ? `<h4>GEO ID: ${blocks[0].properties.GEO_ID_BLK}</h4><br/><p><strong><em>${blocks[0].properties[variablePercentG]}</strong> percent change from 2010</em></p>`
               : `<h4>King County Population Percent Change</h4><div><p>Hover over a block</p></div>`;
         });
     });
