@@ -608,101 +608,101 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGltZW50aW8iLCJhIjoiY2xhMngzZmEyMDRtdDN2bW93M
     });
 
 
-    // percentage change map
-    const perMap = new mapboxgl.Map({
-        container: 'per_change',
-        // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
-        style: 'mapbox://styles/mapbox/light-v11',
-        center: [-121.78956760516976, 47.47222353691079],
-        zoom: 9
-    });
+    // // percentage change map
+    // const perMap = new mapboxgl.Map({
+    //     container: 'per_change',
+    //     // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
+    //     style: 'mapbox://styles/mapbox/light-v11',
+    //     center: [-121.78956760516976, 47.47222353691079],
+    //     zoom: 9
+    // });
 
-    perMap.on('load', () => {
-        perMap.addSource('percent_change', {
-        type: 'geojson',
-        data: 'assets/per_change_new.geojson'
-        })
+    // perMap.on('load', () => {
+    //     perMap.addSource('percent_change', {
+    //     type: 'geojson',
+    //     data: 'assets/per_change_new.geojson'
+    //     })
 
-        perMap.addLayer({
-            'id': 'per_change_layer',
-            'type': 'fill',
-            'source': 'percent_change',
-            'paint': {
-              'fill-color': [
-                'step',
-                ['coalesce', ['to-number', ['get', 'per_total']], 0], // cast Pop2010 to a number
-                '#000000',
-                -9998,
-                '#000080',   // stop_output_0
-                -75,        // stop_input_0
-                '#00008B',   // stop_output_1
-                -50,         // stop_input_1
-                '#0000FF',   // stop_output_2
-                -25,         // stop_input_2
-                '#ADD8E6',   // stop_output_3
-                0,         // stop_input_3
-                '#f0f0f5',
-                0.000001,
-                '#FC4E2A',   // stop_output_4
-                25,           // stop_input_4
-                '#E31A1C',   // stop_output_5
-                50,          // stop_input_5
-                '#BD0026',   // stop_output_6
-                75,          // stop_input_6
-                "#800026"    // stop_output_7
-              ],
-              'fill-opacity': 0.7
-            }
-          });
+    //     perMap.addLayer({
+    //         'id': 'per_change_layer',
+    //         'type': 'fill',
+    //         'source': 'percent_change',
+    //         'paint': {
+    //           'fill-color': [
+    //             'step',
+    //             ['coalesce', ['to-number', ['get', 'per_total']], 0], // cast Pop2010 to a number
+    //             '#000000',
+    //             -9998,
+    //             '#000080',   // stop_output_0
+    //             -75,        // stop_input_0
+    //             '#00008B',   // stop_output_1
+    //             -50,         // stop_input_1
+    //             '#0000FF',   // stop_output_2
+    //             -25,         // stop_input_2
+    //             '#ADD8E6',   // stop_output_3
+    //             0,         // stop_input_3
+    //             '#f0f0f5',
+    //             0.000001,
+    //             '#FC4E2A',   // stop_output_4
+    //             25,           // stop_input_4
+    //             '#E31A1C',   // stop_output_5
+    //             50,          // stop_input_5
+    //             '#BD0026',   // stop_output_6
+    //             75,          // stop_input_6
+    //             "#800026"    // stop_output_7
+    //           ],
+    //           'fill-opacity': 0.7
+    //         }
+    //       });
           
           
-        const layers2 = [
-            'unmeaningful',
-            '-100 to -76',
-            '-75 to -51',
-            '-50 to -26',
-            '-25 to -0.01',
-            '0',
-            '0.01 to 24',
-            '25 to 49', 
-            '50 to 74',
-            '75 or above'
-        ];
-        const colors2 = [
-            '#000000',
-            '#000080',
-            '#00008B',
-            '#0000FF',
-            '#ADD8E6',
-            '#f0f0f5',
-            '#FC4E2A',
-            '#E31A1C',
-            '#BD0026',
-            '#800026',
-        ];
+    //     const layers2 = [
+    //         'unmeaningful',
+    //         '-100 to -76',
+    //         '-75 to -51',
+    //         '-50 to -26',
+    //         '-25 to -0.01',
+    //         '0',
+    //         '0.01 to 24',
+    //         '25 to 49', 
+    //         '50 to 74',
+    //         '75 or above'
+    //     ];
+    //     const colors2 = [
+    //         '#000000',
+    //         '#000080',
+    //         '#00008B',
+    //         '#0000FF',
+    //         '#ADD8E6',
+    //         '#f0f0f5',
+    //         '#FC4E2A',
+    //         '#E31A1C',
+    //         '#BD0026',
+    //         '#800026',
+    //     ];
 
-        const legend2 = document.getElementById('legend2');
-        legend2.innerHTML = "<b>Percent Change<br><b>(%)</b>";
-        layers2.forEach((layer, i) => {
-            const color = colors2[i];
-            const item = document.createElement('div');
-            const key = document.createElement('span');
-            key.className = 'legend-key';
-            key.style.backgroundColor = color;
+    //     const legend2 = document.getElementById('legend2');
+    //     legend2.innerHTML = "<b>Percent Change<br><b>(%)</b>";
+    //     layers2.forEach((layer, i) => {
+    //         const color = colors2[i];
+    //         const item = document.createElement('div');
+    //         const key = document.createElement('span');
+    //         key.className = 'legend-key';
+    //         key.style.backgroundColor = color;
         
-            const value = document.createElement('span');
-            value.innerHTML = `${layer}`;
-            item.appendChild(key);
-            item.appendChild(value);
-            legend2.appendChild(item);
-        });
+    //         const value = document.createElement('span');
+    //         value.innerHTML = `${layer}`;
+    //         item.appendChild(key);
+    //         item.appendChild(value);
+    //         legend2.appendChild(item);
+    //     });
 
-        perMap.on('mousemove', (event) => {
-            const blocks = perMap.queryRenderedFeatures(event.point, {
-              layers: ['per_change_layer']
-            });
-            document.getElementById('hover2').innerHTML = blocks.length
-              ? `<h4>GEO ID: ${blocks[0].properties.GEO_ID_BLK}</h4><br/><p><strong><em>${blocks[0].properties[variablePercentG]}</strong> percent change from 2010</em></p>`
-              : `<h4>King County Population Percent Change</h4><div><p>Hover over a block</p></div>`;
-        });
-    });
+    //     perMap.on('mousemove', (event) => {
+    //         const blocks = perMap.queryRenderedFeatures(event.point, {
+    //           layers: ['per_change_layer']
+    //         });
+    //         document.getElementById('hover2').innerHTML = blocks.length
+    //           ? `<h4>GEO ID: ${blocks[0].properties.GEO_ID_BLK}</h4><br/><p><strong><em>${blocks[0].properties[variablePercentG]}</strong> percent change from 2010</em></p>`
+    //           : `<h4>King County Population Percent Change</h4><div><p>Hover over a block</p></div>`;
+    //     });
+    // });
